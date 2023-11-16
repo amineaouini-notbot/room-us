@@ -29,14 +29,6 @@ input {
     font-size: larger;
     margin-right: 0.5vw;
 }
-/* 
- {
-    text-align: center;
-    padding-right: 2vw;
-    padding-top: 1.2vh;
-    padding-bottom: 1vh;
-     */
-/* } */
 
 button#send {
   align-items: center;
