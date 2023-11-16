@@ -1,0 +1,39 @@
+#room {
+    position: absolute;
+    height: 90%;
+    margin-top: 2.5%;
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#title {
+    text-align: center;
+    font-family: 'Cantarell', sans-serif;
+}
+
+#input {
+    position: absolute;
+    bottom: 0;
+    display: flexbox;
+    margin-left: 1.3vw;
+    margin-bottom: 0.5vh;
+}
+
+input {
+
+    padding-right: 55vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: larger;
+    margin-right: 0.5vw;
+}
+
+button {
+    text-align: center;
+    padding-right: 2vw;
+    padding-top: 1.2vh;
+    padding-bottom: 1vh;
+    
+}
