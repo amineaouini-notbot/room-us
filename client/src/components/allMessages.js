@@ -37,7 +37,9 @@ class AllMessages extends Component{
 
     ]}
     }
-    
+    componentDidMount(){
+        funcs.scrollToBottom()
+    }
     render(){
 
         return (
