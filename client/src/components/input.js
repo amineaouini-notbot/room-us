@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import funcs from './funcs'
 const Input = ()=>{
     const [input, changeInput] = useState("")
 

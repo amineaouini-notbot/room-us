@@ -1,5 +1,5 @@
 import './allMessages.css'
-import {useState, Component} from 'react'
+import {Component} from 'react'
 import funcs from './funcs'
 class AllMessages extends Component{
     constructor(props){
