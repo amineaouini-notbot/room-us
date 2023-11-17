@@ -1,12 +1,10 @@
 const funcs = {
-    reverseMap: (array, cb) =>{
-        let res = []
-        for (let i = array.length-1; -1 < i; i--){
-            res.push(cb(array[i], i))
-        }
-        return res
+    scrollToBottom: () => {
+        const element = document.getElementById("all-messages");
+        element.scrollTop = element.scrollHeight;
     }
 
 }
+
 
 export default funcs

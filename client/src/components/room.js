@@ -1,14 +1,16 @@
 // import { useState } from "react" 
 import './room.css'
 import Input from './input'
+import AllMessages from './allMessages'
+import Introduction from './introduction.js'
 const Room = ()=>{
     // let [state, ]
 
     return (
         <div id="room">
-            <div id="title">
-                <h3>Room.US - By Amine M. Aouini</h3>
-            </div>
+            <Introduction></Introduction>
+            <hr style={{width: '90%', marginLeft: '5%'}}></hr>
+            <AllMessages></AllMessages>
             <hr></hr>
             <Input></Input>
         </div>
