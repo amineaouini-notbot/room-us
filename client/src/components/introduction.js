@@ -7,7 +7,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { useState } from 'react';
 const Introduction = () =>{
-    let onClickEmail = ()=> {navigator.clipboard.writeText('amine.m.aouini@hotmail.com')}
+    
     let [isNumCopied, onNumCopied] = useState(false) 
     let onClickWhatsApp = () => {
         navigator.clipboard.writeText('216-26-115-971')
@@ -15,10 +15,21 @@ const Introduction = () =>{
         setTimeout(()=>{onNumCopied(false)}, 1500)   
     }
     const overlayWhats = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
+        <Tooltip className='overlays' id="num-overlay" {...props}>
           {isNumCopied ? 'Copied' : '216-26-115-971'}
         </Tooltip>
       );
+      let [isEmailCopied, onEmailmCopied] = useState(false) 
+      let onClickEmail = () => {
+        navigator.clipboard.writeText('amine.m.aouini@hotmail.com')
+          onEmailmCopied(true)
+          setTimeout(()=>{onEmailmCopied(false)}, 1500)   
+      }
+      const overlayEmail = (props) => (
+          <Tooltip className='overlays' id="email-overlay" {...props}>
+            {isEmailCopied ? 'Copied' : 'amine.m.aouini@hotmail.com'}
+          </Tooltip>
+        );
     return ( 
         <div>
             <div id="title">
@@ -27,25 +38,29 @@ const Introduction = () =>{
             <hr></hr>
             <div id="my-contacts">
 
-                    <OverlayTrigger placement="bottom"
-                        delay={{ show: 250, hide: 400 }}
-                        overlay={overlayWhats}
-                        >
-                        <div className='contacts' onClick={onClickWhatsApp}>
-                            <FaSquareWhatsapp size={'1.7em'} style={{color: 'green'}}/><span style={{position: 'relative'}}>WhatsApp</span>
-                        </div>
-                    </OverlayTrigger>
-                <div onClick={onClickEmail} className='contacts'>
+                <OverlayTrigger placement="bottom"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={overlayWhats}
+                    >
+                    <div className='contacts' onClick={onClickWhatsApp}>
+                        <FaSquareWhatsapp size={'1.7em'} style={{color: 'green'}}/><span style={{position: 'relative'}}>WhatsApp</span>
+                    </div>
+                </OverlayTrigger>
+                <OverlayTrigger placement="bottom"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={overlayEmail}
+                    >
+                    <div onClick={onClickEmail} className='contacts'>
 
-                    <TfiEmail size={'1.7em'}/><span style={{position: 'relative'}}>Email</span>
-                </div>
-            
+                        <TfiEmail size={'1.7em'}/><span style={{position: 'relative'}}>Email</span>
+                    </div>
+                </OverlayTrigger>
             
                 <div className='contacts'>
-                    <a href="https://github.com/amineaouini-notbot/"><IoLogoGithub size={'1.7em'}/><span style={{position: 'relative'}}>GitHub</span></a>
+                    <a href="https://github.com/amineaouini-notbot/" target="_blank"><IoLogoGithub size={'1.7em'}/><span style={{position: 'relative'}}>GitHub</span></a>
                 </div>
                 <div className='contacts'>
-                    <a href='https://www.linkedin.com/in/amine-aouini/'><FaLinkedin size={'1.7em'} color='#0077B5'/><span style={{position: 'relative'}}>LinkedIn</span></a>
+                    <a href='https://www.linkedin.com/in/amine-aouini/' target="_blank"><FaLinkedin size={'1.7em'} color='#0077B5'/><span style={{position: 'relative'}}>LinkedIn</span></a>
                 </div>
                 
             </div>
