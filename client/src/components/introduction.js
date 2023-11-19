@@ -57,10 +57,10 @@ const Introduction = () =>{
                 </OverlayTrigger>
             
                 <div className='contacts'>
-                    <a href="https://github.com/amineaouini-notbot/" target="_blank"><IoLogoGithub size={'1.7em'}/><span style={{position: 'relative'}}>GitHub</span></a>
+                    <a href="https://github.com/amineaouini-notbot/" target="_blank" rel='noreferrer'><IoLogoGithub size={'1.7em'}/><span style={{position: 'relative'}}>GitHub</span></a>
                 </div>
                 <div className='contacts'>
-                    <a href='https://www.linkedin.com/in/amine-aouini/' target="_blank"><FaLinkedin size={'1.7em'} color='#0077B5'/><span style={{position: 'relative'}}>LinkedIn</span></a>
+                    <a href='https://www.linkedin.com/in/amine-aouini/' target="_blank" rel='noreferrer'><FaLinkedin size={'1.7em'} color='#0077B5'/><span style={{position: 'relative'}}>LinkedIn</span></a>
                 </div>
                 
             </div>
