@@ -1,9 +1,13 @@
 import './allMessages.css'
 import {Component} from 'react'
 import funcs from './funcs'
+import user from '../user'
+import { socket } from '../socket'
+
 class AllMessages extends Component{
     constructor(props){
         super(props)
+        
         this.state = {messages: [
         {
             username: 'user1',
@@ -45,8 +49,15 @@ class AllMessages extends Component{
 
     ]}
     }
+
     componentDidMount(){
+        user.setUsername()
         funcs.scrollToBottom()
+        socket.on('send-message', msg => {
+            console.log(msg)
+            //this.state.messages = this.state.messages.concat(msg)
+            this.setState({messages: this.state.messages.concat(msg)})
+        })
     }
     render(){
 
