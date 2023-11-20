@@ -1,13 +1,14 @@
-export const user = {
+const user = {
     username: "_______xxxxxxxxxxxxxxxx_user",
     setUsername: () =>{
-        if(!localStorage.getItem(this.username)){
-            localStorage.setItem(this.username, prompt('Enter your username!!'))
+        if(!localStorage.getItem(user.username)){
+            localStorage.setItem(user.username, prompt('Enter your username!!'))
         }
 
     },
     getUsername: () => {
-        return localStorage.getItem(this.username)
+        return localStorage.getItem(user.username)
     }
 
 }
+export default user
