@@ -1,10 +1,9 @@
-// import { useState } from "react" 
 import './room.css'
 import Input from './input'
 import AllMessages from './allMessages'
 import Introduction from './introduction.js'
 const Room = ()=>{
-    // let [state, ]
+    
 
     return (
         <div id="room">

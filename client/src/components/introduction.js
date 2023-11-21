@@ -9,20 +9,25 @@ import { useState } from 'react';
 const Introduction = () =>{
     
     let [isNumCopied, onNumCopied] = useState(false) 
-    let onClickWhatsApp = () => {
+    let onClickWhatsApp = () => { // click copy number
         navigator.clipboard.writeText('216-26-115-971')
         onNumCopied(true)
-        setTimeout(()=>{onNumCopied(false)}, 1500)   
+        // after number copied by 1.5 sec show number back
+        setTimeout(()=>{onNumCopied(false)}, 1500)  
     }
+    
     const overlayWhats = (props) => (
         <Tooltip className='overlays' id="num-overlay" {...props}>
-          {isNumCopied ? 'Copied' : '216-26-115-971'}
+          {isNumCopied ? 'Copied' : '216-26-115-971' } 
         </Tooltip>
       );
+
       let [isEmailCopied, onEmailmCopied] = useState(false) 
-      let onClickEmail = () => {
+
+      let onClickEmail = () => { // copy email when clicked on it
         navigator.clipboard.writeText('amine.m.aouini@hotmail.com')
           onEmailmCopied(true)
+          // after email copied by 1.5 sec show email back
           setTimeout(()=>{onEmailmCopied(false)}, 1500)   
       }
       const overlayEmail = (props) => (
