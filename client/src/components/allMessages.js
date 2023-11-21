@@ -51,11 +51,12 @@ class AllMessages extends Component{
     }
 
     componentDidMount(){
-        user.setUsername()
-        funcs.scrollToBottom()
-        socket.on('send-message', msg => {
-            console.log(msg)
-            //this.state.messages = this.state.messages.concat(msg)
+        user.setUsername() // on page opened get username
+        funcs.scrollToBottom() // on component is rendered scroll div to bottom
+
+        socket.on('recieve-message', msg => { // liten to socket when msg is recieved
+            
+            // add message to state
             this.setState({messages: this.state.messages.concat(msg)})
         })
     }

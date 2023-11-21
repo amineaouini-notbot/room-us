@@ -21,24 +21,27 @@ class Input extends React.Component {
     }
     
     send(){
-        if (this.state.input.length > 0) {         
+        // if input is not empty send new msg
+        if (this.state.input.length > 0) {  
             let newMsg = {
 
                 username: user.getUsername(),
                 message: this.state.input,
                 created_at: new Date()
             }
-            socket.emit('send-message', newMsg)
-            this.setState({input: ''})
-            document.getElementById('msg-input').value = ''
+
+            socket.emit('send-message', newMsg) // send msg with socket
+            this.setState({input: ''}) // empty input state
+            document.getElementById('msg-input').value = '' // empty input in front
 
         }
     }
 
     componentDidMount(){
-        var msgInput = document.getElementById("msg-input");
-
-        // Execute a function when the user presses a key on the keyboard
+        
+        // Make event on enter-key pressed to send message
+        
+        let msgInput = document.getElementById("msg-input");
         msgInput.addEventListener("keypress", function(event) {
           // If the user presses the "Enter" key on the keyboard
           if (event.key === "Enter") {
