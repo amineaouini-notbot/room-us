@@ -16,7 +16,7 @@ class AllMessages extends Component{
         this.scroll = this.scroll.bind(this)
     }
     scroll(){
-        funcs.scrollToBottom()
+        funcs.scrollToBottom() // scroll to bottom on icon click 
     }
     onScroll(e){ 
         const {scrollHeight, scrollTop, clientHeight} = e.target
