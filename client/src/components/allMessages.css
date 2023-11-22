@@ -1,13 +1,19 @@
+
+#all-messages-container {
+  display: flex;
+  height: 58vh;
+
+}
 #all-messages {
     
-    height: 58vh;
-    overflow-y: scroll;
+  
+  width: 90%;
+  margin-left: 5%;
+  overflow-y: scroll;
 }
 
 .message {
-    position: relative;
-    width: 90%;
-    left: 5.5%;
+    
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: .25rem;
@@ -49,4 +55,10 @@
 
 .usernames:hover {
     text-decoration: underline;
+}
+
+#scroll-bottom {
+  position: absolute;
+  bottom: 12%;
+  right: 0.8%;
 }
