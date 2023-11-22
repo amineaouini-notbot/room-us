@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use('/messages', require('./routes/messages.js'))
+app.use('/api/messages', require('./routes/messages.js'))
 
 
 const port = 5000;
