@@ -2,7 +2,7 @@
 const connection = (io) => {
     io.on("connection" ,socket =>{
         console.log('a client connected')
-        require('./message')(socket) // setup socket messages events
+        require('./message')(socket, io) // setup socket messages events
     })
     io.on('disconnect', socket => {
         console.log('a client has disconnected')
