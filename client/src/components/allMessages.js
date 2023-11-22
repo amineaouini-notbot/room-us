@@ -7,52 +7,24 @@ import { socket } from '../socket'
 class AllMessages extends Component{
     constructor(props){
         super(props)
-        
-        this.state = {messages: [
-        {
-            username: 'user1',
-            message: 'Hiiiiii',
-            created_at: new Date()
-        },{
-            username: 'user2',
-            message: 'ayyyy hows it going',
-            created_at: new Date()
-        },{
-            username: "user1",
-            message: "doing all right what about you",
-            created_at: new Date()
-        },{
-            username: 'user1',
-            message: 'Hiiiiii',
-            created_at: new Date()
-        },{
-            username: 'user2',
-            message: 'ayyyy hows it going',
-            created_at: new Date()
-        },{
-            username: "user1",
-            message: "doing all right what about you",
-            created_at: new Date()
-        },{
-            username: 'user1',
-            message: 'Hiiiiii',
-            created_at: new Date()
-        },{
-            username: 'user2',
-            message: 'ayyyy hows it going',
-            created_at: new Date()
-        },{
-            username: "user1",
-            message: "doing all right what about you1111111",
-            created_at: new Date()
+        this.state = {
+            messages: []
         }
-
-    ]}
+        
+    }
+    componentWillMount(){
+        fetch('/api/messages/retrieve/all')
+        .then(data => data.json())
+        .then(res => {
+            let {messages} = res;
+            this.setState({messages})
+        })
+        .catch(err => console.log(err));
     }
 
     componentDidMount(){
         user.setUsername() // on page opened get username
-        funcs.scrollToBottom() // on component is rendered scroll div to bottom
+        setTimeout(funcs.scrollToBottom, 300) // on component is rendered scroll div to bottom
 
         socket.on('recieve-message', msg => { // liten to socket when msg is recieved
             
