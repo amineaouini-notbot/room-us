@@ -14,13 +14,12 @@ class AllMessages extends Component{
         }
         this.onScroll = this.onScroll.bind(this)
     }
-    onScroll(){
-        const element = document.getElementById("all-messages");
-        if(element.scrollTop < element.scrollHeight && this.state.onBottom){
-            console.log(element.scrollTop, element.scrollHeight)
+    onScroll(e){
+        const {scrollHeight, scrollTop, clientHeight} = e.target
+        if(scrollTop + clientHeight < scrollHeight && this.state.onBottom){
             this.setState({onBottom: false})
         }
-        else if (element.scrollTop * 2 == element.scrollHeight){
+        else if (scrollTop + clientHeight === scrollHeight){
             this.setState({onBottom: true})
         }
     }
