@@ -13,22 +13,27 @@ class AllMessages extends Component{
             onBottom: true
         }
         this.onScroll = this.onScroll.bind(this)
+        this.scroll = this.scroll.bind(this)
     }
-    onScroll(e){
+    scroll(){
+        funcs.scrollToBottom()
+    }
+    onScroll(e){ 
         const {scrollHeight, scrollTop, clientHeight} = e.target
+        // when not in bottom show scroll-to-bottom icon
         if(scrollTop + clientHeight < scrollHeight && this.state.onBottom){
             this.setState({onBottom: false})
-        }
+        } // if at bottom hide scroll to bottom icon
         else if (scrollTop + clientHeight === scrollHeight){
             this.setState({onBottom: true})
         }
     }
     componentWillMount(){
-        fetch('/api/messages/retrieve/all')
+        fetch('/api/messages/retrieve/all') // fetch all messages
         .then(data => data.json())
         .then(res => {
             let {messages} = res;
-            this.setState({messages})
+            this.setState({messages}) // add fetched messages to state
         })
         .catch(err => console.log(err));
     }
@@ -40,10 +45,11 @@ class AllMessages extends Component{
             this.setState({onBottom: true})
         }, 300) // on component is rendered scroll div to bottom
 
-        socket.on('recieve-message', msg => { // liten to socket when msg is recieved
+        socket.on('recieve-message', msg => { // listen to socket when msg is recieved
             
-            // add message to state
-            this.setState({messages: this.state.messages.concat(msg)})
+            // add message to state and scroll to bottom
+            this.setState({messages: this.state.messages.concat(msg)}, funcs.scrollToBottom)
+            
         })
     }
     render(){
@@ -68,8 +74,8 @@ class AllMessages extends Component{
                     )
                 })}
                 </div>
-                { !this.state.onBottom ? (<div></div>) : (
-                <div id='scroll-bottom'>
+                { this.state.onBottom ? (<div></div>) : (
+                <div id='scroll-bottom' onClick={this.scroll}>
                     
                     <GrLinkBottom color='rgba(0, 0, 0, 0.80)' size='35px'/>
                 </div>
