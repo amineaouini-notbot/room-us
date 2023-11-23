@@ -1,13 +1,8 @@
 FROM node:18
-
-WORKDIR /room.us
-
-copy . .
-
+WORKDIR /usr/src/app
+RUN apt-get update 
+COPY package*.json ./
 RUN npm install
-RUN npm run install-client
-RUN npm install -g concurrently
-CMD ["concurrently", "npm run start", "npm run client"]
-
-EXPOSE 5000
-
+COPY . .
+EXPOSE 5000 4000
+CMD ["node", "start"]
