@@ -7,7 +7,8 @@ const mongoose = require('mongoose')
 const {Server} = require('socket.io')
 const cors = require('cors')
 
-mongoose.connect('mongodb://127.0.0.1/room-us') // connect to mongoDB
+const dbURI = process.env.NODE_ENV === 'production' ? `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@cluster0.mbuhd7j.mongodb.net/?retryWrites=true&w=majority` : 'mongodb://127.0.0.1/room-us'
+mongoose.connect(dbURI) // connect to mongoDB
 .then(()=>console.log('DB connected')) 
 .catch(err => {throw err}) // throw error if there's any
 
