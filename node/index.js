@@ -26,11 +26,7 @@ app.use('/api/messages', require('./routes/messages.js'))
 const port = 5000;
 
 const server = http.Server(app)
-const io = process.env.NODE_ENV === "production" ?
-  new Server(server, { path: '/socket.io/', cors: {
-    origin: "http://localhost:8080"
-  }}) : // if env in production setup socket
-  new Server({ // if in dev setup socket to react's front
+const io = new Server({ // if in dev setup socket to react's front
     cors: {
       origin: "http://localhost:3000"
     }
